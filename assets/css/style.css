@@ -384,6 +384,13 @@ table.spec thead th { font-family: var(--font-mono); font-size: .74rem; letter-s
 table.spec tbody tr { border-top: 1px solid var(--line); }
 table.spec td:first-child { font-weight: 500; color: var(--ink); }
 table.spec td.val { font-family: var(--font-mono); color: #018a63; font-weight: 600; }
+/* On narrow screens the 2-column spec tables fit the card (no horizontal
+   scroll / break-out past the card border); cell text wraps instead. */
+@media (max-width: 560px) {
+  table.spec { min-width: 0; }
+  table.spec th, table.spec td { padding-inline: 16px; }
+  table.spec td.val { word-break: break-word; }
+}
 
 /* --------------------------------------------------------------------------
    CTA band
